@@ -1,16 +1,19 @@
 <template>
   <div id="app">
     <Header />
+    <HorseSelection />
   </div>
 </template>
 
 <script>
 import Header from './components/Header'
+import HorseSelection from './components/HorseSelection'
 
 export default {
   name: 'App',
   components: {
-    Header
+    Header,
+    HorseSelection
   }
 }
 </script>
