@@ -1,10 +1,9 @@
+// v-on:click === @click
 <template>
     <div class="horseBox">
-        <ul id="horseMenu">
-            <li v-bind:key="horse.key" v-for="horse of horseItems" v-on:click="showModal">
-                <img :src="require(`@/assets/${horse.imgSrc}`)" alt="Unicorn" height="300" width="300">
-            </li>
-        </ul>
+      <div class="horse" v-for="horse of horseItems" v-bind:key="horse.key" v-on:click="$emit('show-modal', horse.key)">
+          <img :src="require(`@/assets/${horse.imgSrc}`)" alt="Unicorn" height="300" width="300">
+      </div>
     </div>
 </template>
 
@@ -30,14 +29,18 @@ export default {
 
 <style scoped>
 .horseBox {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
     background: grey;
+    justify-content: space-evenly;
 }
 
-ul#horseMenu li{
-    display: inline;
+.horse:hover{
+    cursor: pointer;
 }
 img {
-    margin: 10px 10px;
+
     background: white;
 }
 
