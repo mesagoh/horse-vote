@@ -29,6 +29,28 @@ export default {
     Modal
   },
   methods: {
+    start () {
+      this.$confetti.start({
+        particles: [
+          {
+            type: 'rect',
+            size: 5
+          },
+          {
+            type: 'circle',
+            size: 5
+          }
+        ],
+        defaultColors: [
+          'red',
+          'pink',
+          'Gold'
+        ]
+      })
+    },
+    stop () {
+      this.$confetti.stop({})
+    },
     showModal (id) {
       this.isSelected = true
       this.selectedHorse = id
@@ -37,8 +59,10 @@ export default {
       console.log('closing modal!')
       this.isSelected = false
       this.selectedHorse = null
+      this.stop()
     },
     handleSelection () {
+      this.start()
       // Record response and send to Firebase!
     }
   }

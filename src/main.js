@@ -3,9 +3,9 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import VModal from 'vue-js-modal'
+import VueConfetti from 'vue-confetti'
 
-Vue.use(VModal, { componentName: 'Modal' })
+Vue.use(VueConfetti)
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

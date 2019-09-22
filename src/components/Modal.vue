@@ -74,13 +74,16 @@ export default {
 }
 
 .modal-wrapper {
-  display: table-cell;
-  vertical-align: middle;
+  justify-content: center;
+  /* display: table-cell;
+  vertical-align: middle; */
 }
 
 .modal-container {
+  display: block;
   width: 400px;
-  margin: 0px auto;
+  margin: auto;
+  margin-top: 20vh;
   padding: 20px 30px;
   background-color: #fff;
   border-radius: 10px;
@@ -116,19 +119,18 @@ export default {
 
 .modal-button:hover {
   cursor: pointer;
-  width: 110px;
-  height: 110px;
-  font-size: 37px;
-  transition: 0.5s;
+
 }
 
 .modal-confirm-button {
   float:left;
   background: #bdebd6;
+  animation: shadow-pulse 0.7s infinite;
 }
 
 .modal-ok-button {
   background: rgb(154, 225, 235);
+  animation: shadow-pulse 0.7s infinite;
 }
 
 .modal-cancel-button {
@@ -157,6 +159,17 @@ export default {
 .modal-leave-active .modal-container {
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
+}
+
+@keyframes shadow-pulse
+{
+    0% {
+      transform: scale(1.0)
+    }
+
+    100% {
+      transform: scale(1.1)
+    }
 }
 
 </style>
