@@ -2,8 +2,10 @@
   <div id="app">
     <Header />
     <HorseSelection v-on:show-modal="showModal"/>
-    <Modal v-if="isSelected" v-on:close-modal="closeModal">
-      <h3 slot="header">the horse selected is {{selectedHorse}}</h3>
+    <Modal v-if="isSelected" v-on:close-modal="closeModal" v-on:select-horse="handleSelection">
+      // Here we put code that varies according to which Horse was picked
+      //    ie, the img src of the horse
+      <h3 slot="header">You selected Horse #{{selectedHorse}}</h3>
     </Modal>
   </div>
 </template>
@@ -32,8 +34,12 @@ export default {
       this.selectedHorse = id
     },
     closeModal () {
+      console.log('closing modal!')
       this.isSelected = false
       this.selectedHorse = null
+    },
+    handleSelection () {
+      // Record response and send to Firebase!
     }
   }
 }

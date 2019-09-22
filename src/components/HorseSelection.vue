@@ -18,11 +18,6 @@ export default {
         {key: 3, imgSrc: 'unicorn.png'}
       ]
     }
-  },
-  methods: {
-    showModal () {
-      console.log('clicked!')
-    }
   }
 }
 </script>
@@ -32,16 +27,19 @@ export default {
     display: flex;
     flex-direction: row;
     width: 100%;
-    background: grey;
     justify-content: space-evenly;
 }
 
-.horse:hover{
-    cursor: pointer;
-}
 img {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
+  background: white;
+  transition: all 0.35s ease-in-out
+}
 
-    background: white;
+img:hover {
+  cursor: pointer;
+  width: 315px;
+  height: 315px;
 }
 
 </style>

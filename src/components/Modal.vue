@@ -8,23 +8,31 @@
             <slot name="header">
               default header
             </slot>
+            <div class="message-title">
+                <b>{{messageTitle}}</b>
+            </div>
           </div>
 
           <div class="modal-body">
             <slot name="body">
-              default body
+              {{messageSubtitle}}
             </slot>
           </div>
 
           <div class="modal-footer">
             <slot name="footer">
-              default footer
-              <button class="modal-default-button" v-on:click="$emit('close-modal')">
-                OK
+              <button v-if="!voted" class="modal-button modal-confirm-button" v-on:click="showMessage">
+                👍
+              </button>
+              <button v-if="!voted" class="modal-button modal-cancel-button" v-on:click="$emit('close-modal')">
+                ❌
               </button>
             </slot>
           </div>
         </div>
+        <button v-if="voted" class="modal-button modal-ok-button" v-on:click="$emit('close-modal')">
+            👌
+        </button>
       </div>
     </div>
   </transition>
@@ -32,11 +40,27 @@
 
 <script>
 export default {
-  name: 'Modal'
+  name: 'Modal',
+  data () {
+    return {
+      messageTitle: '',
+      messageSubtitle: '',
+      voted: false
+    }
+  },
+  methods: {
+    showMessage () {
+      this.$emit('select-horse')
+      this.messageTitle = 'Thank you for voting 🥳 '
+      this.messageSubtitle = 'We have recorded your response!'
+      this.voted = true
+    }
+  }
 }
 </script>
 
-<style scoped>
+<style>
+/* Global so that can be used in App.vue for customized contents */
 .modal-mask {
   position: fixed;
   z-index: 9998;
@@ -55,11 +79,11 @@ export default {
 }
 
 .modal-container {
-  width: 300px;
+  width: 400px;
   margin: 0px auto;
   padding: 20px 30px;
   background-color: #fff;
-  border-radius: 2px;
+  border-radius: 10px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
   transition: all .3s ease;
   font-family: Helvetica, Arial, sans-serif;
@@ -67,15 +91,49 @@ export default {
 
 .modal-header h3 {
   margin-top: 0;
-  color: #42b983;
+}
+
+.message-title {
+  font-size: 30px;
+  color: #eb8039;
 }
 
 .modal-body {
   margin: 20px 0;
 }
 
-.modal-default-button {
+.modal-button {
+  margin-top: 30px;
+  font-size: 30px;
+  border-radius: 100%;
+  box-shadow: 0px 0px 20px -1px rgba(0,0,0,0.90);
+  border: none;
+  outline: none;
+  width: 100px;
+  height: 100px;
+  align-self: center;
+}
+
+.modal-button:hover {
+  cursor: pointer;
+  width: 110px;
+  height: 110px;
+  font-size: 37px;
+  transition: 0.5s;
+}
+
+.modal-confirm-button {
+  float:left;
+  background: #bdebd6;
+}
+
+.modal-ok-button {
+  background: rgb(154, 225, 235);
+}
+
+.modal-cancel-button {
   float: right;
+  background: #ebbdd3;
 }
 
 /*
