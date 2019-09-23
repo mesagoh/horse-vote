@@ -25,7 +25,7 @@ h1 {
 
 /* Subtitle Styling */
 h2 {
-    color: red;
+    color: black;
 }
 
 </style>
