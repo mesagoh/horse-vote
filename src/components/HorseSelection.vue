@@ -1,8 +1,12 @@
 // v-on:click === @click
 <template>
     <div class="horseBox">
-      <div class="horse" v-for="horse of horseItems" v-bind:key="horse.key" v-on:click="$emit('show-modal', horse.key, horse.imgSrc)">
-          <img :src="require(`@/assets/${horse.imgSrc}`)" alt="Unicorn" height="250" width="250">
+      <div class="horse" v-for="horse of horseItems" v-bind:key="horse.key">
+          <img :src="require(`@/assets/${horse.imgSrc}`)"
+          alt="Unicorn"
+          height="250"
+          width="250"
+          @click="$emit('show-modal', horse.key, horse.imgSrc)">
       </div>
     </div>
 </template>
@@ -34,6 +38,7 @@ export default {
     margin: 0 auto;
     width: 90%;
     row-gap: 30px;
+    column-gap: auto;
 }
 
 img {
