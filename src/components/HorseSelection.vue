@@ -1,8 +1,8 @@
 // v-on:click === @click
 <template>
     <div class="horseBox">
-      <div class="horse" v-for="horse of horseItems" v-bind:key="horse.key" v-on:click="$emit('show-modal', horse.key)">
-          <img :src="require(`@/assets/${horse.imgSrc}`)" alt="Unicorn" height="300" width="300">
+      <div class="horse" v-for="horse of horseItems" v-bind:key="horse.key" v-on:click="$emit('show-modal', horse.key, horse.imgSrc)">
+          <img :src="require(`@/assets/${horse.imgSrc}`)" alt="Unicorn" height="250" width="250">
       </div>
     </div>
 </template>
@@ -15,7 +15,12 @@ export default {
       horseItems: [
         {key: 1, imgSrc: 'unicorn.png'},
         {key: 2, imgSrc: 'unicorn.png'},
-        {key: 3, imgSrc: 'unicorn.png'}
+        {key: 3, imgSrc: 'unicorn.png'},
+        {key: 4, imgSrc: 'unicorn.png'},
+        {key: 5, imgSrc: 'unicorn.png'},
+        {key: 6, imgSrc: 'unicorn.png'},
+        {key: 7, imgSrc: 'unicorn.png'},
+        {key: 8, imgSrc: 'unicorn.png'}
       ]
     }
   }
@@ -24,22 +29,23 @@ export default {
 
 <style scoped>
 .horseBox {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    justify-content: space-evenly;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    margin: 0 auto;
+    width: 90%;
+    row-gap: 30px;
 }
 
 img {
-  box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
-  background: white;
-  transition: all 0.35s ease-in-out
+  box-shadow: 20px 20px 40px 17px rgba(0, 0, 0, .33);
+  background: transparent;
+  transition: all 0.35s ease-in-out;
 }
 
 img:hover {
   cursor: pointer;
-  width: 315px;
-  height: 315px;
+  width: 260px;
+  height: 260px;
 }
 
 </style>

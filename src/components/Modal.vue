@@ -6,11 +6,8 @@
 
           <div class="modal-header">
             <slot name="header">
-              default header
+              <b>{{messageTitle}}</b>
             </slot>
-            <div class="message-title">
-                <b>{{messageTitle}}</b>
-            </div>
           </div>
 
           <div class="modal-body">
@@ -68,35 +65,30 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(255, 255, 255, 0.418);
+  background-color: rgba(68, 64, 64, 0.685);
   display: table;
   transition: opacity .3s ease;
 }
 
 .modal-wrapper {
   justify-content: center;
-  /* display: table-cell;
-  vertical-align: middle; */
 }
 
 .modal-container {
   display: block;
   width: 400px;
   margin: auto;
-  margin-top: 20vh;
+  margin-top: 10vh;
   padding: 20px 30px;
   background-color: #fff;
   border-radius: 10px;
-  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.37);
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.513);
   transition: all .3s ease;
   font-family: Helvetica, Arial, sans-serif;
 }
 
-.modal-header h3 {
+.modal-header {
   margin-top: 0;
-}
-
-.message-title {
   font-size: 30px;
   color: #eb8039;
 }

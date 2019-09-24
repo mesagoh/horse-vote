@@ -3,7 +3,10 @@
       <Header />
       <HorseSelection v-on:show-modal="showModal"/>
       <Modal v-if="isSelected" v-on:close-modal="closeModal" v-on:select-horse="handleSelection">
-        <h3 slot="header">You selected Horse #{{selectedHorse}}</h3>
+        <div v-if="!voted" slot="header"><b>You selected Horse #{{selectedHorse}}</b></div>
+        <div v-if="!voted" slot="body">
+          <img :src="require(`@/assets/${horseImg}`)" alt="Unicorn" height="350" width="350">
+        </div>
       </Modal>
     </div>
 </template>
@@ -18,7 +21,9 @@ export default {
   data () {
     return {
       isSelected: false,
-      selectedHorse: null
+      selectedHorse: null,
+      horseImg: '',
+      voted: false
     }
   },
   components: {
@@ -49,9 +54,11 @@ export default {
     stop () {
       this.$confetti.stop({})
     },
-    showModal (id) {
+    showModal (id, imgSrc) {
       this.isSelected = true
       this.selectedHorse = id
+      this.horseImg = imgSrc
+      this.voted = false
     },
     closeModal () {
       this.isSelected = false
@@ -59,6 +66,7 @@ export default {
       this.stop()
     },
     handleSelection () {
+      this.voted = true
       this.start()
       // Record response and send to Firebase!
     }
