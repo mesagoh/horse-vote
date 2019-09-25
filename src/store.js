@@ -16,7 +16,7 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig)
 
-let firebaseCollectionPath = 'horse-votes7'
+let firebaseCollectionPath = 'horse-votes'
 export var dbHorseCollection = firebase.firestore().collection(firebaseCollectionPath)
 
 // horseRef is a docuement.

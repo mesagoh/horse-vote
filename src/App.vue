@@ -50,7 +50,6 @@ export default {
           'Gold'
         ]
       })
-      // initilizeIfDNE()
     },
     stop () {
       this.$confetti.stop({})
@@ -71,18 +70,6 @@ export default {
       this.start()
 
       // Record response and send to Firebase!
-      /*
-      db.collection('Horse-Votes').add({
-        HorseId: this.selectedHorse,
-        NumberOfVotes: 100,
-      })
-      db.collection('Horse-Votes4').doc(this.selectedHorse.toString()).set({
-        HorseId: this.selectedHorse,
-        NumberOfVotes: 100,
-      })
-      let horseRef = db.collection('Horse-Votes4').doc(this.selectedHorse.toString())
-      increment(horseRef)
-      */
       let horseRef = dbHorseCollection.doc(this.selectedHorse.toString())
       increment(horseRef)
     }
