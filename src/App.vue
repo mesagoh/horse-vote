@@ -29,7 +29,7 @@ export default {
   components: {
     Header,
     HorseSelection,
-    Modal
+    Modal,
   },
   methods: {
     start () {
