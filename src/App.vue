@@ -1,5 +1,6 @@
 <template>
     <div id="app">
+      <router-view/>
       <Header />
       <HorseSelection v-on:show-modal="showModal"/>
       <Modal v-if="isSelected" v-on:close-modal="closeModal" v-on:select-horse="handleSelection">
@@ -15,6 +16,7 @@
 import Header from './components/Header'
 import HorseSelection from './components/HorseSelection'
 import Modal from './components/Modal'
+import Login from './components/Login'
 import {dbHorseCollection, increment} from './store'
 export default {
   name: 'App',
@@ -30,6 +32,7 @@ export default {
     Header,
     HorseSelection,
     Modal,
+    Login
   },
   methods: {
     start () {
