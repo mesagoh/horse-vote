@@ -31,7 +31,7 @@ export default {
     background: rgb(212, 191, 0);
     position: fixed;
     opacity: 1;
-    z-index: 999;
+    /* z-index: 999; */
     padding: 3rem 20px 2rem 20px;
     width: 300px;
 }
@@ -50,16 +50,11 @@ export default {
 }
 
 .slide-leave-active {
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
 }
 
 .slide-enter-active {
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
 }
-
-/* .slide-enter .navbar,
-.slide-leave-active .navbar {
-  transform: scale(1.1);
-} */
 
 </style>
