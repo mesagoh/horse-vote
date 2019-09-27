@@ -2,18 +2,52 @@
   <div id="login">
     <div class='container'>
       <h2>Admin Login</h2>
-      <input type="text" name="username" placeholder="Username"><br>
-      <input type="text" name="password" placeholder="Password">
+      <input type="email"  name="email" placeholder="Username" v-model="email"><br>
+      <input type="password" name="password" placeholder="Password" v-model="password">
+    </div>
+    <div>
+      <button v-on:click='login' >Login</button>
+    </div>
+    <div>
+      <button v-on:click='logout' >Logout</button>
     </div>
   </div>
 </template>
 
 <script>
-//  import firebase from 'firebase';
+import firebase from 'firebase'
 export default {
   name: 'login',
   data: function () {
     return {
+      email: '',
+      password: ''
+    }
+  },
+  methods: {
+    login: function (e) {
+      firebase
+        .auth()
+        .signInWithEmailAndPassword(this.email, this.password)
+        .then(
+          user => {
+            alert(`You are logged in as ${user.username}`)
+            // this.$router.go({ path: this.$router.path })
+          },
+          err => {
+            alert(err.message)
+          }
+        )
+      e.preventDefault()
+    },
+    logout: function () {
+      firebase
+        .auth()
+        .signOut()
+        .then(() => {
+          // this.$router.go({ path: this.$router.path })
+          alert(`You are logged out.`)
+        })
     }
   }
 }
