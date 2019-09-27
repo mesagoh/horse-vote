@@ -1,5 +1,4 @@
-import firebase from 'firebase'
-
+import * as firebase from 'firebase/app'
 // Required for side-effects
 require('firebase/firestore')
 
@@ -17,6 +16,7 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig)
 
 let firebaseCollectionPath = 'horse-stats'
+
 export var dbHorseCollection = firebase.firestore().collection(firebaseCollectionPath)
 
 // horseRef is a docuement.
