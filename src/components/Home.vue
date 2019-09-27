@@ -20,6 +20,7 @@ import Modal from './Modal'
 import BurgerMenu from './BurgerMenu'
 import SideNav from './SideNav'
 import {dbHorseCollection, increment} from '../store'
+
 export default {
   name: 'Home',
   data () {
@@ -86,6 +87,6 @@ export default {
 }
 </script>
 
-<style>
-  /* Global Styles */
+<style scoped>
+  /* Homepage Styles */
 </style>
