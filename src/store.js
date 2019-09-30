@@ -16,8 +16,9 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig)
 
 let firebaseCollectionPath = 'horse-stats'
-
-export var dbHorseCollection = firebase.firestore().collection(firebaseCollectionPath)
+var dbHorseCollection = firebase.firestore().collection(firebaseCollectionPath)
+var db = firebase.firestore()
+export {db, dbHorseCollection}
 
 // horseRef is a docuement.
 export function increment (horseRef) {

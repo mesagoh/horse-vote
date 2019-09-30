@@ -1,29 +1,39 @@
 <template>
     <div id="results">
-        Results
-        {{this.setCollection}}
+      <h1> {{title}} </h1>
+      <ul>
+        <li v-for="horse in horses" v-bind:key="horse">
+          Horse ID: {{horse.id}}  Number of Votes: {{horse.NumberOfVotes}}
+        </li>
+      </ul>
     </div>
+
 </template>
 
 <script>
 import {dbHorseCollection} from '../store'
-
 export default {
   name: 'Results',
   data () {
     return {
-      collection: []
+      title: 'Voting Results cant read unless logged in..maybe fixx',
+      horses: [],
+      anNewVar: 'some test'
     }
   },
-  methods: {
-    setCollection () {
-      dbHorseCollection.onSnapshot((snapshot) => {
-        snapshot.forEach((horse, index) => {
-          let ref = dbHorseCollection.doc(index.toString())
-          this.collection.push({id: horse.id, numVotes: ref.data().NumberOfVotes})
+  created () {
+    dbHorseCollection.onSnapshot(
+      querySnapshot => {
+        this.horses = []
+        querySnapshot.forEach(doc => {
+          const data = {
+            'id': doc.id,
+            'NumberOfVotes': doc.data().NumberOfVotes
+          }
+          this.horses.push(data)
         })
-      })
-    }
+      }
+    )
   }
 }
 </script>
