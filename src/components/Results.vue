@@ -16,7 +16,7 @@ export default {
   name: 'Results',
   data () {
     return {
-      title: 'Voting Results cant read unless logged in..maybe fixx',
+      title: 'Voting Results',
       horses: [],
       anNewVar: 'some test'
     }
