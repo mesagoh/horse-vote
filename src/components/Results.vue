@@ -12,8 +12,10 @@
 
 <script>
 import {dbHorseCollection} from '../store'
+// import Bar from 'vue-chartjs'
 export default {
   name: 'Results',
+  // extends: Bar,
   data () {
     return {
       title: 'Voting Results',

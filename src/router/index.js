@@ -34,18 +34,18 @@ let router = new Router({
 
 router.beforeEach((to, from, next) => {
   if (to.matched.some(record => record.meta.requiresAuth)) {
-    if (!firebase.auth().currentUser) {
-      // go to login page
-      next({
-        path: '/',
-        query: {
-          redirect: to.fullPath
-        }
-      })
-    } else {
-      // go to rout
-      next()
-    }
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        next()
+      } else {
+        next({
+          path: '/',
+          query: {
+            redirect: to.fullPath
+          }
+        })
+      }
+    })
   } else {
     next()
   }

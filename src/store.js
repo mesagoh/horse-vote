@@ -8,7 +8,7 @@ var firebaseConfig = {
   authDomain: 'horse-votes.firebaseapp.com',
   databaseURL: 'https://horse-votes.firebaseio.com',
   projectId: 'horse-votes',
-  storageBucket: '',
+  storageBucket: 'horse-votes.appspot.com',
   messagingSenderId: '940252193643',
   appId: '1:940252193643:web:24795cd9c4d47a9731222e'
 }

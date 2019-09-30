@@ -35,7 +35,7 @@ export default {
 .horseBox {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    margin: 0 auto;
+    margin: auto;
     width: 90%;
     row-gap: 30px;
     column-gap: auto;

@@ -1,15 +1,14 @@
 <template>
   <div id="login">
     <div class='container'>
-      <h2>Admin Login</h2>
-      <input type="email"  name="email" placeholder="Username" v-model="email"><br>
-      <input type="password" name="password" placeholder="Password" v-model="password">
-    </div>
-    <div>
-      <button v-on:click='login' >Login</button>
-    </div>
-    <div>
-      <button v-on:click='logout' >Logout</button>
+      <transition name="fade">
+        <h2 key=1 v-if="isLoggedIn">You are logged in as {{this.email}}!</h2>
+        <h2 v-else>Admin Log In</h2>
+      </transition>
+      <input type="email"  name="email" placeholder="Email" v-model="email"><br>
+      <input type="password" name="password" placeholder="Password" v-model="password"><br>
+    <button v-if="!isLoggedIn" v-on:click='login'><b>Login</b></button>
+    <button v-if="isLoggedIn" v-on:click='logout'><b>Logout</b></button>
     </div>
   </div>
 </template>
@@ -21,7 +20,8 @@ export default {
   data: function () {
     return {
       email: '',
-      password: ''
+      password: '',
+      isLoggedIn: false
     }
   },
   methods: {
@@ -31,7 +31,10 @@ export default {
         .signInWithEmailAndPassword(this.email, this.password)
         .then(
           user => {
+            this.isLoggedIn = true
             alert(`You are logged in as ${this.email}`)
+            this.$router.push('home')
+
             // this.$router.go({ path: this.$router.path })
           },
           err => {
@@ -46,9 +49,20 @@ export default {
         .signOut()
         .then(() => {
           // this.$router.go({ path: this.$router.path })
-          alert(`You are logged out.`)
+          this.isLoggedIn = false
+          alert(`You are logged out!`)
         })
     }
+  },
+  beforeMount () {
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        this.isLoggedIn = true
+        this.email = user.email
+      } else {
+        this.isLoggedIn = false
+      }
+    })
   }
 }
 </script>
@@ -91,14 +105,6 @@ export default {
     opacity: 1;
   }
 }
-.mask {
-  display: grid;
-  width: 100vw;
-  height: 100vh;
-  top: 0;
-  left: 0;
-  background:rgba(80, 78, 78, 0.315);
-}
 
 .container {
   display: block;
@@ -108,8 +114,8 @@ export default {
   background: rgb(63, 70, 69);
   border-radius: 10px;
   box-shadow: 20px 20px 40px 17px rgba(15, 14, 14, 0.33);
-  width: 40vw;
-  height: 40vh;
+  width: 600px;
+  height: 270px;
 }
 
 h2 {
@@ -125,5 +131,26 @@ input {
   border-radius: 10px;
   border: none;
   background:rgb(195, 195, 201);
+}
+
+button {
+  margin: 10px 10px;
+  width: 100px;
+  height: 40px;
+  font-size: 20px;
+  border-radius: 30px;
+  border: none;
+  color: rgb(236, 215, 175);
+  background-color:rgb(70, 180, 116);
+  transition: all 1s ease;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color:rgba(2, 140, 153, 0.8);
+}
+
+button:focus {
+  outline: none;
 }
 </style>
