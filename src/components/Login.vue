@@ -2,8 +2,13 @@
   <div id="login">
     <div class='container'>
       <transition name="fade">
-        <h2 key=1 v-if="isLoggedIn">You are logged in as {{this.email}}!</h2>
-        <h2 v-else>Admin Log In</h2>
+        <div key=1 v-if="isLoggedIn" class="header">
+          <p id="title"> You are logged in as </p>
+          <p id="subtitle">{{this.email}} </p>
+        </div>
+        <div v-else class="header">
+          <p id="title">Admin Log In</p>
+        </div>
       </transition>
       <input type="email"  name="email" placeholder="Email" v-model="email"><br>
       <input type="password" name="password" placeholder="Password" v-model="password"><br>
@@ -115,18 +120,32 @@ export default {
   border-radius: 10px;
   box-shadow: 20px 20px 40px 17px rgba(15, 14, 14, 0.33);
   width: 600px;
-  height: 270px;
+  height: 300px;
 }
 
-h2 {
+.header {
   color:rgb(88, 212, 140);
 }
 
+.header p#title {
+  font-weight: bold;
+  font-size: 27px;
+  margin: 3px 3px;
+}
+
+.header p#subtitle {
+  margin: 3px 3px;
+  font-size: 20px;
+  color: rgb(209, 231, 148);
+}
+
 input {
-  width: 300px;
+  width: 350px;
   height: 30px;
-  margin: 10px 5px;
+  margin-top: 30px;
+  margin-bottom: 10px;
   padding: 3px;
+  font-size: 20px;
   outline: none;
   border-radius: 10px;
   border: none;
