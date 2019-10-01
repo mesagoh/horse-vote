@@ -1,6 +1,7 @@
 <template>
     <div class="header">
-        <h1> {{title}} </h1>
+        <img id="logo" :src="require(`@/assets/LGS_logo_RGB.png`)" alt="logo" height="170" width="430">
+        <!-- <h1> {{title}} </h1> -->
     </div>
 </template>
 
@@ -9,7 +10,7 @@ export default {
   name: 'Header',
   data () {
     return {
-      title: 'Vote for your horse! 🐎'
+      title: 'Pick your winner'
     }
   }
 }
@@ -21,9 +22,8 @@ h1 {
     color:black;
 }
 
-/* Subtitle Styling */
-h2 {
-    color: black;
+#logo {
+  margin-top: 30px;
 }
 
 </style>

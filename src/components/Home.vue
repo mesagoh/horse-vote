@@ -1,11 +1,12 @@
 <template>
   <div id="home">
+    <Background />
     <Header />
     <HorseSelection v-on:show-modal="showModal"/>
     <Modal v-if="isSelected" v-on:close-modal="closeModal" v-on:select-horse="handleSelection">
       <div v-if="!voted" slot="header"><b>You selected Horse #{{selectedHorse}}</b></div>
       <div v-if="!voted" slot="body">
-        <img :src="require(`@/assets/${horseImg}`)" alt="Unicorn" height="350" width="350">
+        <img :src="require(`@/assets/horses/${horseImg}`)" alt="Unicorn" height="350" width="440">
       </div>
     </Modal>
   </div>
@@ -15,6 +16,7 @@
 import Header from './Header'
 import HorseSelection from './HorseSelection'
 import Modal from './Modal'
+import Background from './Background'
 import {dbHorseCollection, increment} from '../store'
 
 export default {
@@ -30,7 +32,8 @@ export default {
   components: {
     Header,
     HorseSelection,
-    Modal
+    Modal,
+    Background
   },
   methods: {
     start () {
