@@ -98,6 +98,8 @@ export default {
   display: grid;
   grid-template-columns: repeat(3, auto);
   grid-template-rows: repeat(10,auto);
+  padding-left: 100px;
+  padding-right: 100px;
 }
 .race_winner{
   grid-column-start: 1;
