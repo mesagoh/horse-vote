@@ -13,22 +13,19 @@
 
         <div class="fan_favorites_caption">{{fan_favorites_caption}}</div>
         <div class="fan_favorite_one">
-          <img id="horseImg2" :src="require(`@/assets/horses/${this.horseItems[0].imgSrc}`)"
-                                            alt="horse"
-                                            height="190"
-                                            width="230">
+          <h2>#1 {{fan_fav_1.name}} {{fan_fav_1.votes}}</h2>
+          <h2>Name: {{fan_fav_1.name}}</h2>
+          <h2>Votes: {{fan_fav_1.votes}}</h2>
         </div>
         <div class="fan_favorite_two">
-          <img id="horseImg2" :src="require(`@/assets/horses/${this.horseItems[0].imgSrc}`)"
-                                           alt="horse"
-                                           height="190"
-                                           width="230">
+          <h2>#1 {{fan_fav_2.name}} {{fan_fav_2.votes}}</h2>
+          <h2>Name: {{fan_fav_2.name}}</h2>
+          <h2>Votes: {{fan_fav_2.votes}}</h2>
         </div>
         <div class="fan_favorite_three">
-          <img id="horseImg2" :src="require(`@/assets/horses/${this.horseItems[0].imgSrc}`)"
-               alt="horse"
-               height="190"
-               width="230">
+          <h2>#1 {{fan_fav_3.name}} {{fan_fav_3.votes}}</h2>
+          <h2>Name: {{fan_fav_3.name}}</h2>
+          <h2>Votes: {{fan_fav_3.votes}}</h2>
         </div>
 
       </div>
@@ -61,7 +58,19 @@ export default {
         {key: 6, imgSrc: '6_Mia-Mischief-1.jpg'},
         {key: 7, imgSrc: '7_TurboShaft.jpg'},
         {key: 8, imgSrc: '8_Buy-Sell-Hold.png'}
-      ]
+      ],
+      fan_fav_1: {
+        name: 'fan fav 1',
+        votes: 1000
+      },
+      fan_fav_2: {
+        name: 'fan fav 2',
+        votes: 100
+      },
+      fan_fav_3: {
+        name: 'fan fav 3',
+        votes: 10
+      }
     }
   },
   created () {
