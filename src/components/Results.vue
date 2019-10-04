@@ -5,7 +5,7 @@
         <h1 class="title">{{title}} </h1>
         <div class="race_winner_caption">{{race_winner_caption}}</div>
         <div class="race_winner">
-          <img id="horseImg" :src="require(`@/assets/horses/${this.horseItems[6].imgSrc}`)"
+          <img id="horseImg" :src="require(`@/assets/horses/${this.horseItems[5].imgSrc}`)"
                alt="horse"
                height="190"
                width="230">
@@ -14,23 +14,23 @@
         <div class="fan_favorites_caption">{{fan_favorites_caption}}<hr class="style-seven"/></div>
         <hr class="style18">
         <div class="fan_favorite_1">
-          <h2>#{{this.horses[0].place}}. {{this.horses[0].name}} ({{this.horses[0].votes}} Votes)</h2>
+          <h3>#{{this.horses[0].place}}. {{this.horses[0].id}} ({{this.horses[0].votes}} Votes)</h3>
         </div>
          <div class="fan_favorite_2">
-           <h2>#{{this.horses[1].place}}. {{this.horses[1].name}} ({{this.horses[1].votes}} Votes)</h2>
+           <h3>#{{this.horses[1].place}}. {{this.horses[1].id}} ({{this.horses[1].votes}} Votes)</h3>
           </div>
           <div class="fan_favorite_3">
-            <h2>#{{this.horses[2].place}}. {{this.horses[2].name}} ({{this.horses[2].votes}} Votes)</h2>
+            <h3>#{{this.horses[2].place}}. {{this.horses[2].id}} ({{this.horses[2].votes}} Votes)</h3>
           </div>
 
        </div>
 
       <div class="wrapper2">
-        <div class="fan_favorite_4"><h3>#{{this.horses[3].place}}. {{this.horses[3].name}}</h3></div>
-        <div class="fan_favorite_5"><h3>#{{this.horses[4].place}}. {{this.horses[4].name}}</h3></div>
-        <div class="fan_favorite_6"><h3>#{{this.horses[5].place}}. {{this.horses[5].name}}</h3></div>
-        <div class="fan_favorite_7"><h3>#{{this.horses[6].place}}. {{this.horses[6].name}}</h3></div>
-        <div class="fan_favorite_8"><h3>#{{this.horses[7].place}}. {{this.horses[7].name}}</h3></div>
+        <div class="fan_favorite_4"><h4>#{{this.horses[3].place}}. {{this.horses[3].id}}</h4></div>
+        <div class="fan_favorite_5"><h4>#{{this.horses[4].place}}. {{this.horses[4].id}}</h4></div>
+        <div class="fan_favorite_6"><h4>#{{this.horses[5].place}}. {{this.horses[5].id}}</h4></div>
+        <div class="fan_favorite_7"><h4>#{{this.horses[6].place}}. {{this.horses[6].id}}</h4></div>
+        <div class="fan_favorite_8"><h4>#{{this.horses[7].place}}. {{this.horses[7].id}}</h4></div>
       </div>
 
     </div>
@@ -73,52 +73,44 @@ export default {
       fan_favorites_caption: 'Fan Favorites',
       horses: [
         {
-          'id': '',
           'votes': '',
-          'name': '',
-          'place': ''
+          'place': '',
+          'id': ''
         },
         {
-          'id': '',
           'votes': '',
-          'name': '',
-          'place': ''
+          'place': '',
+          'id': ''
         },
         {
-          'id': '',
           'votes': '',
-          'name': '',
-          'place': ''
+          'place': '',
+          'id': ''
         },
         {
-          'id': '',
           'votes': '',
-          'name': '',
-          'place': ''
+          'place': '',
+          'id': ''
         },
         {
-          'id': '',
           'votes': '',
-          'name': '',
-          'place': ''
+          'place': '',
+          'id': ''
         },
         {
-          'id': '',
           'votes': '',
-          'name': '',
-          'place': ''
+          'place': '',
+          'id': ''
         },
         {
-          'id': '',
           'votes': '',
-          'name': '',
-          'place': ''
+          'place': '',
+          'id': ''
         },
         {
-          'id': '',
           'votes': '',
-          'name': '',
-          'place': ''
+          'place': '',
+          'id': ''
         }
       ],
       horseItems: [
@@ -139,10 +131,9 @@ export default {
         this.horses = []
         querySnapshot.forEach(doc => {
           const data = {
-            'id': doc.id,
             'votes': doc.data().votes,
-            'name': doc.data().name,
-            'place': 0
+            'place': 0,
+            'id': doc.id
           }
           this.horses.push(data)
         })
@@ -183,7 +174,7 @@ export default {
   grid-column-end: 4;
   grid-row-start: 2;
   grid-row-end: 3;
-  font-size: 50px;
+  font-size: 40px;
   font-family: 'Cinzel', serif;
 }
 .fan_favorites_caption{
@@ -192,7 +183,7 @@ export default {
   grid-column-end: 4;
   grid-row-start: 4;
   grid-row-end: 5;
-  font-size: 50px;
+  font-size: 40px;
   font-family: 'Cinzel', serif;
 }
 .fan_favorite_1{
