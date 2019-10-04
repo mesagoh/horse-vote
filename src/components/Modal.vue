@@ -80,17 +80,16 @@ export default {
   margin: auto;
   margin-top: 10vh;
   padding: 20px 30px;
-  background-color: #fff;
-  border-radius: 10px;
+  background-color: rgb(243, 96, 77);
+  border-radius: 20px;
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.513);
   transition: all .3s ease;
-  font-family: Helvetica, Arial, sans-serif;
 }
 
 .modal-header {
   margin-top: 0;
   font-size: 30px;
-  color: #eb8039;
+  color: #e7d56d;
 }
 
 .modal-body {
@@ -98,7 +97,7 @@ export default {
 }
 
 .modal-button {
-  margin-top: 30px;
+  margin-top: 40px;
   font-size: 30px;
   border-radius: 100%;
   box-shadow: 0px 0px 20px -1px rgba(0,0,0,0.90);
@@ -116,20 +115,20 @@ export default {
 
 .modal-confirm-button {
   float:left;
-  background: #bdebd6;
+  background: #60e4a9;
   animation: shadow-pulse 0.7s infinite;
   animation-direction: alternate;
 }
 
 .modal-ok-button {
-  background: rgb(154, 225, 235);
+  background: rgb(50, 204, 224);
   animation: shadow-pulse 0.7s infinite;
   animation-direction: alternate;
 }
 
 .modal-cancel-button {
   float: right;
-  background: #ebbdd3;
+  background: #ec6fac;
 }
 
 /*

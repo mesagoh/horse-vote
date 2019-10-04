@@ -39,7 +39,7 @@
 <script>
 import {dbHorseCollection} from '../store'
 
-function setPlace(horses) {
+function setPlace (horses) {
   let place = 1
   let numInPlace = 1
   for (let i = 0; i < horses.length; i++) {
@@ -58,15 +58,14 @@ function setPlace(horses) {
   }
 }
 
-function sortHorses(horses) {
-  horses.sort(function(a, b){
-    return b.votes-a.votes
+function sortHorses (horses) {
+  horses.sort(function (a, b) {
+    return b.votes - a.votes
   })
 }
 
 export default {
   name: 'Results',
-  // extends: Bar,
   data () {
     return {
       title: 'Aggie Stakes 2019 Results',
@@ -131,7 +130,7 @@ export default {
         {key: 6, imgSrc: '6_Mia-Mischief-1.jpg'},
         {key: 7, imgSrc: '7_TurboShaft.jpg'},
         {key: 8, imgSrc: '8_Buy-Sell-Hold.png'}
-      ],
+      ]
     }
   },
   created () {
@@ -146,10 +145,9 @@ export default {
             'place': 0
           }
           this.horses.push(data)
-
-          sortHorses(this.horses)
-          setPlace(this.horses)
         })
+        sortHorses(this.horses)
+        setPlace(this.horses)
       }
     )
   }
@@ -157,9 +155,6 @@ export default {
 </script>
 
 <style scoped>
-.header-style {
-
-}
 .centered {
   padding-top: 10px;
 }

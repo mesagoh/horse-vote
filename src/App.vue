@@ -13,10 +13,12 @@ export default {
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css?family=Assistant&display=swap');
+
   #app {
     top: 0; left: 0;
     width: 100%; height: 100%;
-    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    font-family: 'Assistant', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
