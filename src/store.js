@@ -15,23 +15,33 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig)
 
-let firebaseCollectionPath = 'horse-stats'
+let firebaseCollectionPath = 'horse-stats2'
 var dbHorseCollection = firebase.firestore().collection(firebaseCollectionPath)
 var db = firebase.firestore()
-export {db, dbHorseCollection}
+var horseNames = [
+  'horse 1',
+  'horse 2',
+  'horse 3',
+  'horse 4',
+  'horse 5',
+  'horse 6',
+  'horse 7',
+  'horse 8'
+]
+export {db, dbHorseCollection, horseNames}
 
 // horseRef is a docuement.
 export function increment (horseRef) {
   horseRef.get().then(function (doc) {
     if (doc.exists) {
       horseRef.update({
-        NumberOfVotes: firebase.firestore.FieldValue.increment(1)
+        votes: firebase.firestore.FieldValue.increment(1)
       })
     } else {
       // doc.data() will be undefined in this case
       horseRef.set({
         ErrorMessage: 'A doc for this horse was not created on startup.',
-        NumberOfVotes: 1
+        votes: 1
       })
     }
   }).catch(function (error) {
@@ -51,7 +61,9 @@ export function initilizeIfDNE () {
       } else {
         // doc.data() will be undefined in this case
         horseRef.set({
-          NumberOfVotes: 0
+          id: 1,
+          votes: 0,
+          name: horseNames[horseIndex - 1]
         })
       }
     }).catch(function (error) {
@@ -63,32 +75,3 @@ export function initilizeIfDNE () {
 window.addEventListener('load', (event) => {
   initilizeIfDNE()
 })
-
-/* This function will delete all of the docuements, and thus the collection its self, form the collection specified by
-firebaseCollectionPath. */
-/* This is code that I wrote to delete the data. It does it on unlode, but I dont want to do it there anyway. So, I will
-return to this if I want.
-export function deleteHorserVotesCollection () {
-  for (let horseIndex = 1; horseIndex < 9; horseIndex++) {
-    let horseRef = dbHorseCollection.doc(horseIndex.toString())
-
-    horseRef.get().then(function (doc) {
-      if (doc.exists) {
-        horseRef.delete().then(function () {
-          console.log('Document successfully deleted!')
-        }).catch(function (error) {
-          console.error('Error removing document: ', error)
-        })
-      } else {
-        // doc.data() will be undefined in this case
-      }
-    }).catch(function (error) {
-      console.log('Error getting document:', error)
-    })
-  }
-  return null
-}
-window.addEventListener('onunload', function () {
-  deleteHorserVotesCollection()
-})
- */
