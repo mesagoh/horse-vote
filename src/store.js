@@ -1,8 +1,8 @@
 import * as firebase from 'firebase/app'
+// import {horseItems} from 'components/HorseSelection'
 // Required for side-effects
 require('firebase/firestore')
 
-// Your web app's Firebase configuration
 var firebaseConfig = {
   apiKey: 'AIzaSyDPCrcnHOFzIGcDWsB_j9zY8YkksZaNgjU',
   authDomain: 'horse-votes.firebaseapp.com',
@@ -15,22 +15,23 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig)
 
-let firebaseCollectionPath = 'horse-stats2'
+let firebaseCollectionPath = 'horse-stats'
 var dbHorseCollection = firebase.firestore().collection(firebaseCollectionPath)
 var db = firebase.firestore()
-var horseNames = [
-  'horse 1',
-  'horse 2',
-  'horse 3',
-  'horse 4',
-  'horse 5',
-  'horse 6',
-  'horse 7',
-  'horse 8'
-]
-export {db, dbHorseCollection, horseNames}
 
-// horseRef is a docuement.
+var horseItems = [
+  {key: 1, imgSrc: '1_Saltbae.jpg', name: 'Putah Ring on it'},
+  {key: 2, imgSrc: '2_Vision-of-Justice.jpg', name: 'Mrak in the Saddle'},
+  {key: 3, imgSrc: '3_Criminal-Mischief.jpg', name: 'Arboretum-n-Weep'},
+  {key: 4, imgSrc: '4_Clays-Dialing-In.jpg', name: 'Karma Patrol'},
+  {key: 5, imgSrc: '5_Miss-Brooklyn-Bralwer.jpg', name: 'Kemper Temper'},
+  {key: 6, imgSrc: '6_Mia-Mischief-1.jpg', name: 'Freshman Stripe'},
+  {key: 7, imgSrc: '7_TurboShaft.jpg', name: 'Healthy as a Horse'},
+  {key: 8, imgSrc: '8_Buy-Sell-Hold.png', name: 'Double Major'}
+]
+
+export {db, dbHorseCollection}
+
 export function increment (horseRef) {
   horseRef.get().then(function (doc) {
     if (doc.exists) {
@@ -53,17 +54,15 @@ export function increment (horseRef) {
 then it will create those that are missing and initilize the votes to zero. It is not called anywhere because I want
 it to be called on refresh and I dont konw where to call it. */
 export function initilizeIfDNE () {
-  for (let horseIndex = 1; horseIndex < 9; horseIndex++) {
-    let horseRef = dbHorseCollection.doc(horseIndex.toString())
+  for (let i = 0; i < 8; i++) {
+    let horseRef = dbHorseCollection.doc(horseItems[i].name)
     horseRef.get().then(function (doc) {
       if (doc.exists) {
 
       } else {
         // doc.data() will be undefined in this case
         horseRef.set({
-          id: 1,
-          votes: 0,
-          name: horseNames[horseIndex - 1]
+          votes: 0
         })
       }
     }).catch(function (error) {
