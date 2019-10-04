@@ -7,6 +7,7 @@ import firebase from 'firebase'
 Vue.use(Router)
 
 let router = new Router({
+  mode: 'history',
   routes: [
     {
       path: '/',
@@ -28,6 +29,10 @@ let router = new Router({
       meta: {
         requiresAuth: true
       }
+    },
+    {
+      path: '*',
+      redirect: '/404'
     }
   ]
 })
