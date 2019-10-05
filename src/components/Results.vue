@@ -12,10 +12,12 @@
 
         <div class="fan_favorites_caption">{{fan_favorites_caption}}</div>
         <div class="favoritesContainer">
-          <div v-for="(numVotes) in votes"  v-bind:key="numVotes" class="fanFavorite">
+          /* line below returns votes in decreasing order */
+          <div v-for="numVotes in votes"  v-bind:key="numVotes" class="fanFavorite">
             <div class="entry" v-if="numVotes > 1">{{numVotes}} Votes :</div>
             <div class="entry" v-else>{{numVotes}} Vote :</div>
             <div class="entry">
+              /* access horsesObject in this order and print the names */
               <span class="entryNames" v-for="item in horses[numVotes]" :key="item">{{item}}</span>
             </div>
           </div>
@@ -37,6 +39,8 @@ export default {
       votes: []
     }
   },
+  /* Instead of an array of objects, used object that holds votes as its key.
+      Each key will hold an array of horse names that have the same number of votes */
   created () {
     dbHorseCollection.onSnapshot(
       querySnapshot => {
@@ -45,15 +49,19 @@ export default {
         querySnapshot.forEach(doc => {
           const numVotes = doc.data().votes
           const name = doc.id
-
+          // check if numVotes has been put into map
           if (numVotes in this.horses) {
+            // if true, this implies there exists an array of horsenames,
+            //    so, we push the new horse name to the collection
             this.horses[numVotes].push(name)
           } else {
+            // create a new array and push the horse name to it.
             this.horses[numVotes] = []
             this.horses[numVotes].push(name)
           }
         })
-        // Sort the keys (aka votes) in decreasing order
+        // Sort the keys (aka votes) in decreasing order.
+        //  we can retrieve the list of names in this order.
         this.votes = Object.keys(this.horses)
         this.votes.sort((a, b) => (b - a))
       }
@@ -63,6 +71,7 @@ export default {
 </script>
 
 <style scoped>
+/* note that font can be set in the outermost wrapper, the children will follow */
 #results {
   display: block;
   margin: 0 auto;
