@@ -14,8 +14,8 @@
         <div class="favoritesContainer">
           <!-- /* line below returns votes in decreasing order */ -->
           <div v-for="numVotes in votes"  v-bind:key="numVotes" class="fanFavorite">
-            <div class="entry" v-if="numVotes > 1">{{numVotes}} Votes :</div>
-            <div class="entry" v-else>{{numVotes}} Vote :</div>
+            <div class="entry" v-if="numVotes == 1 ">{{numVotes}} Vote :</div>
+            <div class="entry" v-else>{{numVotes}} Votes :</div>
             <div class="entry">
               <!-- /* access horsesObject in this order and print the names */ -->
               <p class="entryNames" v-for="item in horses[numVotes]" :key="item">{{item}}</p>
@@ -79,7 +79,7 @@ export default {
 }
 
 .title {
-  margin-top: 30px;
+  margin-top: 40px;
   margin-bottom: 0;
 }
 
@@ -89,7 +89,7 @@ export default {
 }
 .fanFavorite{
   display: grid;
-  grid-template-columns: 50% 50%;
+  grid-template-columns: 40% 60%;
   align-items: start;
 }
 
@@ -140,42 +140,4 @@ export default {
 #horseImg {
   box-shadow: 20px 20px 40px 17px rgba(0, 0, 0, .33);
 }
-/* Flaired edges, by Tomas Theunissen */
-
-hr.style-seven {
-  overflow: visible; /* For IE */
-  height: 30px;
-  border-style: solid;
-  border-color: black;
-  border-width: 1px 0 0 0;
-  border-radius: 20px;
-}
-hr.style-seven:before { /* Not really supposed to work, but does */
-  display: block;
-  content: "";
-  height: 30px;
-  margin-top: -31px;
-  border-style: solid;
-  border-color: black;
-  border-width: 0 0 1px 0;
-  border-radius: 20px;
-}
-
 </style>
-/*
-
-font-family: 'Lobster', cursive;
-
-font-family: 'Dancing Script', cursive;
-
-font-family: 'Cinzel', serif;
-
-font-family: 'Tangerine', cursive;
-
-font-family: 'Playball', cursive;
-
-font-family: 'Italianno', cursive;
-
-font-family: 'Niconne', cursive;
-
-*/

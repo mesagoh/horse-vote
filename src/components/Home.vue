@@ -66,7 +66,7 @@ export default {
     },
     closeModal () {
       this.isSelected = false
-      this.selectedHorse = null
+      this.selectedHorse = null  
       this.stop()
     },
     handleSelection () {

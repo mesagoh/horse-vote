@@ -7,9 +7,10 @@
           height="190"
           width="230"
           @click="$emit('show-modal', horse.name, horse.imgSrc)">
+
           <div class="nameBanner">
             {{horse.name}}
-            </div>
+          </div>
       </div>
     </div>
 </template>
@@ -56,8 +57,10 @@ export default {
   bottom:0; left:0;
   width:100%; height:auto;
   position: absolute;
+  top: 180px;
+  bottom: -15px;
   text-align: center;
-  padding-top: 3px;
+  //padding-top: 3px;
   padding-bottom: 3px;
 }
 
