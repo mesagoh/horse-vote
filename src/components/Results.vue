@@ -12,12 +12,12 @@
 
         <div class="fan_favorites_caption">{{fan_favorites_caption}}</div>
         <div class="favoritesContainer">
-          /* line below returns votes in decreasing order */
+          <!-- /* line below returns votes in decreasing order */ -->
           <div v-for="numVotes in votes"  v-bind:key="numVotes" class="fanFavorite">
             <div class="entry" v-if="numVotes > 1">{{numVotes}} Votes :</div>
             <div class="entry" v-else>{{numVotes}} Vote :</div>
             <div class="entry">
-              /* access horsesObject in this order and print the names */
+              <!-- /* access horsesObject in this order and print the names */ -->
               <span class="entryNames" v-for="item in horses[numVotes]" :key="item">{{item}}</span>
             </div>
           </div>
@@ -51,8 +51,8 @@ export default {
           const name = doc.id
           // check if numVotes has been put into map
           if (numVotes in this.horses) {
-            // if true, this implies there exists an array of horsenames,
-            //    so, we push the new horse name to the collection
+          // if true, this implies there exists an array of horsenames,
+          //    so, we push the new horse name to the collection
             this.horses[numVotes].push(name)
           } else {
             // create a new array and push the horse name to it.
