@@ -18,7 +18,7 @@
             <div class="entry" v-else>{{numVotes}} Vote :</div>
             <div class="entry">
               <!-- /* access horsesObject in this order and print the names */ -->
-              <span class="entryNames" v-for="item in horses[numVotes]" :key="item">{{item}}</span>
+              <p class="entryNames" v-for="item in horses[numVotes]" :key="item">{{item}}</p>
             </div>
           </div>
        </div>
@@ -78,14 +78,18 @@ export default {
   font-family: 'Cinzel', serif;
 }
 
+.title {
+  margin-top: 30px;
+  margin-bottom: 0;
+}
+
 .favoritesContainer {
   margin: 0 auto;
   width: 30%;
 }
 .fanFavorite{
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  text-align: left;
+  grid-template-columns: 50% 50%;
   align-items: start;
 }
 
@@ -103,7 +107,7 @@ export default {
   font-size: 40px;
 }
 .fan_favorites_caption{
-  padding-top: 40px;
+  padding-top: 30px;
   grid-column-start: 1;
   grid-column-end: 4;
   grid-row-start: 4;
@@ -113,13 +117,17 @@ export default {
 
 .entry{
   padding-right: 10px;
-  min-width: 30px;
+  min-width: 20%;
   white-space: pre;
+  text-align: right;
 }
 
 .entryNames {
   padding-right: 20px;
   white-space: pre;
+  margin-top: 0;
+  margin-bottom: 5px;
+  text-align: left;
 }
 
 .title{
