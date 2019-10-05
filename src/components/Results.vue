@@ -1,68 +1,30 @@
 <template>
     <div id="results" class="centered">
-      <div class="wrapper">
 
         <h1 class="title">{{title}} </h1>
         <div class="race_winner_caption">{{race_winner_caption}}</div>
         <div class="race_winner">
-          <img id="horseImg" :src="require(`@/assets/horses/${this.horseItems[5].imgSrc}`)"
+          <img id="horseImg" src="../assets/horses/6_Mia-Mischief-1.jpg"
                alt="horse"
-               height="190"
-               width="230">
+               height="250"
+               width="300">
         </div>
 
-        <div class="fan_favorites_caption">{{fan_favorites_caption}}<hr class="style-seven"/></div>
-        <hr class="style18">
-        <div class="fan_favorite_1">
-          <h3>#{{this.horses[0].place}}. {{this.horses[0].id}} ({{this.horses[0].votes}} Votes)</h3>
-        </div>
-         <div class="fan_favorite_2">
-           <h3>#{{this.horses[1].place}}. {{this.horses[1].id}} ({{this.horses[1].votes}} Votes)</h3>
+        <div class="fan_favorites_caption">{{fan_favorites_caption}}</div>
+        <div class="favoritesContainer">
+          <div v-for="(numVotes) in votes"  v-bind:key="numVotes" class="fanFavorite">
+            <div class="entry" v-if="numVotes > 1">{{numVotes}} Votes :</div>
+            <div class="entry" v-else>{{numVotes}} Vote :</div>
+            <div class="entry">
+              <span class="entryNames" v-for="item in horses[numVotes]" :key="item">{{item}}</span>
+            </div>
           </div>
-          <div class="fan_favorite_3">
-            <h3>#{{this.horses[2].place}}. {{this.horses[2].id}} ({{this.horses[2].votes}} Votes)</h3>
-          </div>
-
        </div>
-
-      <div class="wrapper2">
-        <div class="fan_favorite_4"><h4>#{{this.horses[3].place}}. {{this.horses[3].id}}</h4></div>
-        <div class="fan_favorite_5"><h4>#{{this.horses[4].place}}. {{this.horses[4].id}}</h4></div>
-        <div class="fan_favorite_6"><h4>#{{this.horses[5].place}}. {{this.horses[5].id}}</h4></div>
-        <div class="fan_favorite_7"><h4>#{{this.horses[6].place}}. {{this.horses[6].id}}</h4></div>
-        <div class="fan_favorite_8"><h4>#{{this.horses[7].place}}. {{this.horses[7].id}}</h4></div>
-      </div>
-
     </div>
 </template>
 
 <script>
 import {dbHorseCollection} from '../store'
-
-function setPlace (horses) {
-  let place = 1
-  let numInPlace = 1
-  for (let i = 0; i < horses.length; i++) {
-    horses[i].place = place
-
-    if (i === horses.length - 1) {
-      horses[i].place = place
-      break
-    }
-    if (horses[i].votes === horses[i + 1].votes) {
-      numInPlace++
-    } else {
-      place += numInPlace
-      numInPlace = 1
-    }
-  }
-}
-
-function sortHorses (horses) {
-  horses.sort(function (a, b) {
-    return b.votes - a.votes
-  })
-}
 
 export default {
   name: 'Results',
@@ -71,74 +33,29 @@ export default {
       title: 'Aggie Stakes 2019 Results',
       race_winner_caption: '1st Place: Freshman Stripe',
       fan_favorites_caption: 'Fan Favorites',
-      horses: [
-        {
-          'votes': '',
-          'place': '',
-          'id': ''
-        },
-        {
-          'votes': '',
-          'place': '',
-          'id': ''
-        },
-        {
-          'votes': '',
-          'place': '',
-          'id': ''
-        },
-        {
-          'votes': '',
-          'place': '',
-          'id': ''
-        },
-        {
-          'votes': '',
-          'place': '',
-          'id': ''
-        },
-        {
-          'votes': '',
-          'place': '',
-          'id': ''
-        },
-        {
-          'votes': '',
-          'place': '',
-          'id': ''
-        },
-        {
-          'votes': '',
-          'place': '',
-          'id': ''
-        }
-      ],
-      horseItems: [
-        {key: 1, imgSrc: '1_Saltbae.jpg'},
-        {key: 2, imgSrc: '2_Vision-of-Justice.jpg'},
-        {key: 3, imgSrc: '3_Criminal-Mischief.jpg'},
-        {key: 4, imgSrc: '4_Clays-Dialing-In.jpg'},
-        {key: 5, imgSrc: '5_Miss-Brooklyn-Bralwer.jpg'},
-        {key: 6, imgSrc: '6_Mia-Mischief-1.jpg'},
-        {key: 7, imgSrc: '7_TurboShaft.jpg'},
-        {key: 8, imgSrc: '8_Buy-Sell-Hold.png'}
-      ]
+      horses: {}, // (key, value[]) (votes, name[])
+      votes: []
     }
   },
   created () {
     dbHorseCollection.onSnapshot(
       querySnapshot => {
-        this.horses = []
+        this.horses = {}
+        this.votes = []
         querySnapshot.forEach(doc => {
-          const data = {
-            'votes': doc.data().votes,
-            'place': 0,
-            'id': doc.id
+          const numVotes = doc.data().votes
+          const name = doc.id
+
+          if (numVotes in this.horses) {
+            this.horses[numVotes].push(name)
+          } else {
+            this.horses[numVotes] = []
+            this.horses[numVotes].push(name)
           }
-          this.horses.push(data)
         })
-        sortHorses(this.horses)
-        setPlace(this.horses)
+        // Sort the keys (aka votes) in decreasing order
+        this.votes = Object.keys(this.horses)
+        this.votes.sort((a, b) => (b - a))
       }
     )
   }
@@ -146,23 +63,23 @@ export default {
 </script>
 
 <style scoped>
-.centered {
-  padding-top: 10px;
+#results {
+  display: block;
+  margin: 0 auto;
+  font-family: 'Cinzel', serif;
 }
-.wrapper {
+
+.favoritesContainer {
+  margin: 0 auto;
+  width: 30%;
+}
+.fanFavorite{
   display: grid;
-  grid-template-columns: repeat(3, auto);
-  grid-template-rows: repeat(10,auto);
-  padding-left: 100px;
-  padding-right: 100px;
+  grid-template-columns: 1fr 1fr;
+  text-align: left;
+  align-items: start;
 }
-.wrapper2 {
-  display: grid;
-  grid-template-columns: repeat(4, auto);
-  grid-template-rows: repeat(1,auto);
-  padding-left: 100px;
-  padding-right: 100px;
-}
+
 .race_winner{
   grid-column-start: 1;
   grid-column-end: 4;
@@ -175,7 +92,6 @@ export default {
   grid-row-start: 2;
   grid-row-end: 3;
   font-size: 40px;
-  font-family: 'Cinzel', serif;
 }
 .fan_favorites_caption{
   padding-top: 40px;
@@ -184,71 +100,25 @@ export default {
   grid-row-start: 4;
   grid-row-end: 5;
   font-size: 40px;
-  font-family: 'Cinzel', serif;
 }
-.fan_favorite_1{
-  grid-column-start: 1;
-  grid-column-end: 2;
-  grid-row-start: 5;
-  grid-row-end: 6;
-  font-family: 'Cinzel', serif;
+
+.entry{
+  padding-right: 10px;
+  min-width: 30px;
+  white-space: pre;
 }
-.fan_favorite_2{
-  grid-column-start: 2;
-  grid-column-end: 3;
-  grid-row-start: 5;
-  grid-row-end: 6;
-  font-family: 'Cinzel', serif;
+
+.entryNames {
+  padding-right: 20px;
+  white-space: pre;
 }
-.fan_favorite_3{
-  grid-column-start: 3;
-  grid-column-end: 4;
-  grid-row-start: 5;
-  grid-row-end: 6;
-  font-family: 'Cinzel', serif;
-}
-.fan_favorite_4{
-  grid-column-start: 1;
-  grid-column-end: 2;
-  grid-row-start: 1;
-  grid-row-end: 2;
-  font-family: 'Cinzel', serif;
-}
-.fan_favorite_5{
-  grid-column-start: 2;
-  grid-column-end: 3;
-  grid-row-start: 1;
-  grid-row-end: 2;
-  font-family: 'Cinzel', serif;
-}
-.fan_favorite_6{
-  grid-column-start: 3;
-  grid-column-end: 4;
-  grid-row-start: 1;
-  grid-row-end: 2;
-  font-family: 'Cinzel', serif;
-}
-.fan_favorite_7{
-  grid-column-start: 4;
-  grid-column-end: 5;
-  grid-row-start: 1;
-  grid-row-end: 2;
-  font-family: 'Cinzel', serif;
-}
-.fan_favorite_8{
-  grid-column-start: 5;
-  grid-column-end: 6;
-  grid-row-start: 1;
-  grid-row-end: 2;
-  font-family: 'Cinzel', serif;
-}
+
 .title{
   grid-column-start: 1;
   grid-column-end: 4;
   grid-row-start: 1;
   grid-row-end: 2;
   font-size: 50px;
-  font-family: 'Cinzel', serif;
 }
 #horseImg {
   box-shadow: 20px 20px 40px 17px rgba(0, 0, 0, .33);
