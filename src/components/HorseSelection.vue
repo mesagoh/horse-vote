@@ -60,7 +60,7 @@ export default {
   top: 180px;
   bottom: -15px;
   text-align: center;
-  //padding-top: 3px;
+  padding-top: 3px;
   padding-bottom: 3px;
 }
 
