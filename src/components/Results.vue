@@ -4,16 +4,17 @@
       <ResultsOverlay />
       <Background />
         <h1 class="title">{{title}} </h1>
-        <img id="badge" src="../assets/winner-badge.png"
+        <!--<img id="badge" src="../assets/winner-badge.png"
             alt="badge"
             height="90"
-            width="90">
+            width="90">-->
          <img id="horseImg" src="../assets/horses/6_Mia-Mischief-1.jpg"
             alt="horse"
             height="280"
             width="340">
+
         <div class="ribbon">
-          <div class="race_winner_caption">{{race_winner_caption}}</div>
+          <div class="race_winner_caption">Race Winner: {{race_winner_caption}}</div>
         </div>
 
         <div class="fan_favorites_caption">{{fan_favorites_caption}}</div>
@@ -109,6 +110,7 @@ export default {
   align-items: start;
   font-size: 15px;
   font-family: 'Assistant', sans-serif;
+  font-weight: 600;
 }
 
 .race_winner_caption{
@@ -116,7 +118,8 @@ export default {
   grid-column-end: 4;
   grid-row-start: 2;
   grid-row-end: 3;
-  font-size: 40px;
+  font-size: 20px;
+  font-weight: 600;
 }
 .fan_favorites_caption{
   padding-top: 70px;
@@ -125,6 +128,7 @@ export default {
   grid-row-start: 4;
   grid-row-end: 5;
   font-size: 30px;
+  font-weight: 600;
 }
 
 .entry{
@@ -178,7 +182,7 @@ img#badge {
  I've used em's to position each element for scalability.
  If you want to use a different font size you may have
     to play with the position of the ribbon elements */
- width: 400px;
+ width: 373px;
  position: absolute;
  background: rgb(231, 199, 172);
  color: rgb(92, 74, 68);
