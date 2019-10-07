@@ -35,4 +35,5 @@ export default {
         left: 0;
         margin: 5px 5px;
     }
+
 </style>

@@ -1,6 +1,7 @@
 <template>
-    <div id="results" class="centered">
 
+    <div id="results" class="centered">
+      <Background />
         <h1 class="title">{{title}} </h1>
         <div class="race_winner_caption">{{race_winner_caption}}</div>
         <div class="race_winner">
@@ -27,6 +28,7 @@
 
 <script>
 import {dbHorseCollection} from '../store'
+import Background from './Background2'
 
 export default {
   name: 'Results',
@@ -66,6 +68,9 @@ export default {
         this.votes.sort((a, b) => (b - a))
       }
     )
+  },
+  components: {
+    Background
   }
 }
 </script>
