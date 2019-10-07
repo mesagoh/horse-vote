@@ -107,7 +107,7 @@ export default {
   display: grid;
   grid-template-columns: 40% 60%;
   align-items: start;
-  font-size: 17px;
+  font-size: 15px;
   font-family: 'Assistant', sans-serif;
 }
 
@@ -124,7 +124,7 @@ export default {
   grid-column-end: 4;
   grid-row-start: 4;
   grid-row-end: 5;
-  font-size: 38px;
+  font-size: 30px;
 }
 
 .entry{
