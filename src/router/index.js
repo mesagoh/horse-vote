@@ -27,7 +27,7 @@ let router = new Router({
       name: 'results',
       component: Results,
       meta: {
-        requiresAuth: true
+        requiresAuth: false
       }
     },
     {

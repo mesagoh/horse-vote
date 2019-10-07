@@ -105,7 +105,7 @@ export default {
 }
 .fanFavorite{
   display: grid;
-  grid-template-columns: 40% 60%;
+  grid-template-columns: 43% 57%;
   align-items: start;
   font-size: 15px;
   font-family: 'Assistant', sans-serif;
