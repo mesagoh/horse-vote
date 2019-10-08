@@ -12,7 +12,33 @@
 
           <div class="modal-body">
             <slot name="body">
-              {{messageSubtitle}}
+
+              <div class = "completed-message">
+                {{messageSubtitle}}
+
+              </div>
+              <div class = "credits">
+                <div class="credit-title">
+                  <p>Application Developers</p>
+                  <hr class="line"/>
+                </div>
+                <div class = "john_name">
+                  John Paulus Francia
+                </div>
+                <div class="john_major">
+                  Senior Undergraduate Student at UC Davis
+                  <br>
+                  Computer Science and Physics Double Major
+                </div>
+                <div class = "melissa_name">
+                  Melissa Goh
+                </div>
+                <div class="melissa_major">
+                  Senior Undergraduate Student at UC Davis
+                  <br>
+                  Computer Science Major
+                </div>
+              </div>
             </slot>
           </div>
 
@@ -57,7 +83,54 @@ export default {
 </script>
 
 <style>
-/* Global so that can be used in App.vue for customized contents */
+hr.line {
+  border: 1px solid darkred;
+}
+.credits{
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: auto auto auto auto auto;
+  text-align: center;
+  font-size: 15px;
+  font-family: 'Assistant', sans-serif;
+  font-weight: 700;
+}
+.credit-title{
+  grid-row-start: 1;
+  grid-row-end: 2;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  font-size: 20px;
+ }
+.john_name {
+  font-size: 20px;
+  color: #e7d56d;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  grid-column-start: 2;
+  grid-column-end: 3;
+}
+.john_major {
+  grid-row-start: 4;
+  grid-row-end: 5;
+  grid-column-start: 2;
+  grid-column-end: 3;
+}
+.melissa_name {
+  font-size: 20px;
+  color: #e7d56d;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  grid-column-start:1;
+  grid-column-end: 2;
+}
+.melissa_major{
+  grid-row-start: 4;
+  grid-row-end: 5;
+  grid-column-start:1;
+  grid-column-end: 2;
+}
+  /* Global so that can be used in App.vue for customized contents */
 .modal-mask {
   position: fixed;
   z-index: 9998;
@@ -94,6 +167,12 @@ export default {
 
 .modal-body {
   margin: 20px 0;
+  text-align: left;
+}
+.modal-body img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .modal-button {
@@ -164,5 +243,7 @@ export default {
       transform: scale(1.1)
     }
 }
-
+.completed-message {
+  text-align: center;
+}
 </style>

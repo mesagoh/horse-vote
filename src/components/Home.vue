@@ -6,8 +6,13 @@
     <Modal v-if="isSelected" v-on:close-modal="closeModal" v-on:select-horse="handleSelection">
       <div v-if="!voted" slot="header"><b>You selected {{selectedHorse}}</b></div>
       <div v-if="!voted" slot="body">
-        <img :src="require(`@/assets/horses/${horseImg}`)" alt="Unicorn" height="350" width="440">
+        <img :src="require(`@/assets/horses/${horseImg}`)" alt="Unicorn" height="300" >
+
+        <div v-if="!voted" slot="body"><b><br>{{selectedHorseDescriprion}}</b></div>
+        <div v-if="!voted" slot="body"><b><br>Silks: {{silks}}</b></div>
+
       </div>
+
     </Modal>
   </div>
 </template>
@@ -58,11 +63,13 @@ export default {
     stop () {
       this.$confetti.stop({})
     },
-    showModal (id, imgSrc) {
+    showModal (id, imgSrc, description, silks) {
       this.isSelected = true
       this.selectedHorse = id
+      this.selectedHorseDescriprion = description
       this.horseImg = imgSrc
       this.voted = false
+      this.silks = silks
     },
     closeModal () {
       this.isSelected = false
