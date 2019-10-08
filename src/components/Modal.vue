@@ -6,7 +6,9 @@
 
           <div class="modal-header">
             <slot name="header">
-              <b>{{messageTitle}}</b>
+              <div class="thankyou">
+                <b>{{messageTitle}}</b>
+              </div>
             </slot>
           </div>
 
@@ -14,19 +16,20 @@
             <slot name="body">
 
               <div class = "completed-message">
-                {{messageSubtitle}}
+                <b>{{messageSubtitle}}</b>
 
               </div>
               <div class = "credits">
                 <div class="credit-title">
-                  <p>Application Developers</p>
+                  <br><br>
                   <hr class="line"/>
+                  <p>⬇️&nbsp;&nbsp;&nbsp;&nbsp;Meet the Application Developers&nbsp;&nbsp;&nbsp;&nbsp;⬇️</p>
                 </div>
                 <div class = "john_name">
                   John Paulus Francia
                 </div>
                 <div class="john_major">
-                  Senior Undergraduate Student at UC Davis
+                  Senior Undergraduate, UC Davis
                   <br>
                   Computer Science and Physics Double Major
                 </div>
@@ -34,11 +37,16 @@
                   Melissa Goh
                 </div>
                 <div class="melissa_major">
-                  Senior Undergraduate Student at UC Davis
+                  Senior Undergraduate, UC Davis
                   <br>
                   Computer Science Major
                 </div>
               </div>
+              <br><br><br>
+              <img id="ucdlogo" src="../assets/ucdavis_logo.png"
+                  alt="logo"
+                  height="27"
+                  width="140">
             </slot>
           </div>
 
@@ -74,7 +82,7 @@ export default {
   methods: {
     showMessage () {
       this.$emit('select-horse')
-      this.messageTitle = 'Thank you for voting 🥳 '
+      this.messageTitle = 'Thank You 🥳 '
       this.messageSubtitle = 'We have recorded your response!'
       this.voted = true
     }
@@ -83,6 +91,14 @@ export default {
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css?family=Petit+Formal+Script&display=swap');
+
+.thankyou {
+ font-family: 'Petit Formal Script', cursive;
+ font-size: 50px;
+ font-weight: 700;
+}
+
 hr.line {
   border: 1px solid darkred;
 }
@@ -91,7 +107,7 @@ hr.line {
   grid-template-columns: 50% 50%;
   grid-template-rows: auto auto auto auto auto;
   text-align: center;
-  font-size: 15px;
+  font-size: 18px;
   font-family: 'Assistant', sans-serif;
   font-weight: 700;
 }
@@ -103,7 +119,7 @@ hr.line {
   font-size: 20px;
  }
 .john_name {
-  font-size: 20px;
+  font-size: 25px;
   color: #e7d56d;
   grid-row-start: 2;
   grid-row-end: 3;
@@ -117,7 +133,7 @@ hr.line {
   grid-column-end: 3;
 }
 .melissa_name {
-  font-size: 20px;
+  font-size: 25px;
   color: #e7d56d;
   grid-row-start: 2;
   grid-row-end: 3;
@@ -149,7 +165,7 @@ hr.line {
 
 .modal-container {
   display: block;
-  width: 500px;
+  width: 560px;
   margin: auto;
   margin-top: 10vh;
   padding: 20px 30px;
@@ -162,11 +178,12 @@ hr.line {
 .modal-header {
   margin-top: 0;
   font-size: 30px;
-  color: #e7d56d;
+  color: #e7d77e;
 }
 
 .modal-body {
-  margin: 20px 0;
+  font-size: 18px;
+  margin: 20px 10px;
   text-align: left;
 }
 .modal-body img {
@@ -245,5 +262,9 @@ hr.line {
 }
 .completed-message {
   text-align: center;
+}
+
+#ucdlogo {
+  opacity: 0.7;
 }
 </style>

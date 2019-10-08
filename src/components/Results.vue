@@ -9,10 +9,6 @@
             height="280"
             width="340">
         <div class="banner">
-          <!-- <img id="badge" src="../assets/winner-badge.png"
-              alt="badge"
-              height="90"
-              width="90"> -->
           <div class="ribbon">
             <div class="race_winner_caption">{{race_winner_caption}}</div>
           </div>
