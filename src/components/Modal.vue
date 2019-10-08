@@ -29,7 +29,7 @@
                   John Paulus Francia
                 </div>
                 <div class="john_major">
-                  Senior Undergraduate, UC Davis
+                  UC Davis'20
                   <br>
                   Computer Science and Physics Double Major
                 </div>
@@ -37,7 +37,7 @@
                   Melissa Goh
                 </div>
                 <div class="melissa_major">
-                  Senior Undergraduate, UC Davis
+                  UC Davis'20
                   <br>
                   Computer Science Major
                 </div>
@@ -62,7 +62,7 @@
           </div>
         </div>
         <button v-if="voted" class="modal-button modal-ok-button" v-on:click="$emit('close-modal')">
-            👌
+            ❌
         </button>
       </div>
     </div>
@@ -219,7 +219,7 @@ hr.line {
 }
 
 .modal-ok-button {
-  background: rgb(50, 204, 224);
+  background: #ec6fac;
   animation: shadow-pulse 0.7s infinite;
   animation-direction: alternate;
 }
