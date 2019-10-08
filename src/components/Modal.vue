@@ -21,9 +21,9 @@
               </div>
               <div class = "credits">
                 <div class="credit-title">
-                  <br><br>
+                  <br>
                   <hr class="line"/>
-                  <p>⬇️&nbsp;&nbsp;&nbsp;&nbsp;Meet the Application Developers&nbsp;&nbsp;&nbsp;&nbsp;⬇️</p>
+                  <p>⬇️&nbsp;&nbsp;&nbsp;&nbsp;<i>Meet the Application Developers!</i>&nbsp;&nbsp;&nbsp;&nbsp;⬇️</p>
                 </div>
                 <div class = "john_name">
                   John Paulus Francia
@@ -94,13 +94,15 @@ export default {
 @import url('https://fonts.googleapis.com/css?family=Petit+Formal+Script&display=swap');
 
 .thankyou {
+  padding-top: 10px;
  font-family: 'Petit Formal Script', cursive;
  font-size: 50px;
  font-weight: 700;
 }
 
 hr.line {
-  border: 1px solid darkred;
+  border: 2px solid rgba(139, 0, 0, 0.575);
+  border-top: none;
 }
 .credits{
   display: grid;
@@ -261,6 +263,7 @@ hr.line {
     }
 }
 .completed-message {
+  color:rgb(85, 79, 79);
   text-align: center;
 }
 
