@@ -4,17 +4,18 @@
       <ResultsOverlay />
       <Background />
         <h1 class="title">{{title}} </h1>
-        <!--<img id="badge" src="../assets/winner-badge.png"
-            alt="badge"
-            height="90"
-            width="90">-->
          <img id="horseImg" src="../assets/horses/6_Mia-Mischief-1.jpg"
             alt="horse"
             height="280"
             width="340">
-
-        <div class="ribbon">
-          <div class="race_winner_caption">Race Winner: {{race_winner_caption}}</div>
+        <div class="banner">
+          <!-- <img id="badge" src="../assets/winner-badge.png"
+              alt="badge"
+              height="90"
+              width="90"> -->
+          <div class="ribbon">
+            <div class="race_winner_caption">{{race_winner_caption}}</div>
+          </div>
         </div>
 
         <div class="fan_favorites_caption">{{fan_favorites_caption}}</div>
@@ -42,8 +43,8 @@ export default {
   data () {
     return {
       title: 'Aggie Stakes 2019 Results',
-      race_winner_caption: 'Freshman Stripe',
-      fan_favorites_caption: 'Fan Favorites',
+      race_winner_caption: 'Race Winner: Freshman Stripe',
+      fan_favorites_caption: 'Fan Ranking',
       horses: {}, // (key, value[]) (votes, name[])
       votes: []
     }
@@ -103,12 +104,13 @@ export default {
 .favoritesContainer {
   margin: 0 auto;
   width: 30%;
+  font-weight: 600;
 }
 .fanFavorite{
   display: grid;
-  grid-template-columns: 43% 57%;
+  grid-template-columns: 45% 55%;
   align-items: start;
-  font-size: 15px;
+  font-size: 18px;
   font-family: 'Assistant', sans-serif;
   font-weight: 600;
 }
@@ -118,7 +120,7 @@ export default {
   grid-column-end: 4;
   grid-row-start: 2;
   grid-row-end: 3;
-  font-size: 20px;
+  font-size: 35px;
   font-weight: 600;
 }
 .fan_favorites_caption{
@@ -127,7 +129,7 @@ export default {
   grid-column-end: 4;
   grid-row-start: 4;
   grid-row-end: 5;
-  font-size: 30px;
+  font-size: 32px;
   font-weight: 600;
 }
 
@@ -158,10 +160,14 @@ export default {
   box-shadow: 20px 20px 40px 17px rgba(0, 0, 0, .33);
 }
 
+.banner {
+  /* display: block; */
+  position:relative;
+  max-width: 100px; height: 8px;
+  /* overflow: hidden; */
+}
+
 img#badge {
-  position: absolute;
-  left: 32%;
-  top: 47%;
   z-index: 2;
   animation: sway 0.9s infinite;
   animation-direction: alternate;
@@ -182,14 +188,15 @@ img#badge {
  I've used em's to position each element for scalability.
  If you want to use a different font size you may have
     to play with the position of the ribbon elements */
- width: 373px;
+ width: 600px;
  position: absolute;
  background: rgb(231, 199, 172);
  color: rgb(92, 74, 68);
  text-align: center;
  padding: 1em 2em; /* Adjust to suit */
- right: 465px;
- top: 380px;
+ left: 50vw;
+ margin-left: -332px;
+ top: -15px;
  font-family: 'Petit Formal Script', cursive;
  font-weight: bold;
 }
