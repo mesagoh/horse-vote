@@ -29,7 +29,7 @@
                   John Paulus Francia
                 </div>
                 <div class="john_major">
-                  UC Davis'20
+                  UC Davis, Class of 2020
                   <br>
                   Computer Science and Physics Double Major
                 </div>
@@ -37,16 +37,30 @@
                   Melissa Goh
                 </div>
                 <div class="melissa_major">
-                  UC Davis'20
+                  UC Davis, Class of 2020
                   <br>
                   Computer Science Major
                 </div>
+
+                <div class = simon_title>
+                  <br/>
+                  <i>Project Supervisor</i>
+                </div>
+
+                <div class="simon_name">
+                  Simon Nim
+                </div>
+
+                <div class="simon_text">
+                  Business Relationship Manager<br/>
+                  UC Davis, Advancement Services
+                </div>
               </div>
-              <br><br><br>
+             <!-- <br><br><br>
               <img id="ucdlogo" src="../assets/ucdavis_logo.png"
                   alt="logo"
                   height="27"
-                  width="140">
+                  width="140">-->
             </slot>
           </div>
 
@@ -147,6 +161,27 @@ hr.line {
   grid-row-end: 5;
   grid-column-start:1;
   grid-column-end: 2;
+}
+.simon_title{
+  grid-row-start: 5;
+  grid-row-end: 6;
+  grid-column-start:1;
+  grid-column-end: 3;
+  font-size: 20px;
+}
+.simon_name {
+  font-size: 25px;
+  color: #e7d56d;
+  grid-row-start: 6;
+  grid-row-end: 7;
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+.simon_text {
+  grid-row-start: 7;
+  grid-row-end: 8;
+  grid-column-start: 1;
+  grid-column-end: 3;
 }
   /* Global so that can be used in App.vue for customized contents */
 .modal-mask {
