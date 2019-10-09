@@ -44,7 +44,7 @@
 
                 <div class = simon_title>
                   <br/>
-                  <i>Project Supervisor</i>
+                  <i>Project Manager</i>
                 </div>
 
                 <div class="simon_name">
