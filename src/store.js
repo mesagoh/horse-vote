@@ -20,7 +20,7 @@ var dbHorseCollection = firebase.firestore().collection(firebaseCollectionPath)
 var db = firebase.firestore()
 
 var horseItems = [
-  {key: 1, imgSrc: '1_Saltbae.jpg', name: 'Putah Ring on it'},
+  {key: 1, imgSrc: '1_Saltbae.jpg', name: 'Putah Ring on It'},
   {key: 2, imgSrc: '2_Vision-of-Justice.jpg', name: 'Mrak in the Saddle'},
   {key: 3, imgSrc: '3_Criminal-Mischief.jpg', name: 'Arboretum-n-Weep'},
   {key: 4, imgSrc: '4_Clays-Dialing-In.jpg', name: 'Karma Patrol'},

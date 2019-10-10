@@ -45,7 +45,7 @@ export default {
       horses: {}, // (key, value[]) (votes, name[])
       votes: [],
       horseNums: {
-        'Putah Ring on it': 1,
+        'Putah Ring on It': 1,
         'Mrak in the Saddle': 2,
         'Arboretum-n-Weep': 3,
         'Karma Patrol': 4,

@@ -25,7 +25,7 @@ export default {
       horseItems: [
         {key: 1,
           imgSrc: '1_Saltbae.jpg',
-          name: 'Putah Ring on it',
+          name: 'Putah Ring on It',
           silks: 'Red',
           description:
             'If you like it then you better commit to this hometown favorite, a thoroughbred raised along the 5.5\n' +
