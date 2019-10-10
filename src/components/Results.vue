@@ -5,9 +5,7 @@
       <Background />
         <h1 class="title">{{title}} </h1>
          <img id="horseImg" src="../assets/horses/6_Mia-Mischief-1.jpg"
-            alt="horse"
-            height="280"
-            width="340">
+            alt="horse">
         <div class="banner">
           <div class="ribbon">
             <div class="race_winner_caption">{{race_winner_caption}}</div>
@@ -22,7 +20,10 @@
             <div class="entry" v-else>{{numVotes}} Votes :</div>
             <div class="entry">
               <!-- /* access horsesObject in this order and print the names */ -->
-              <p class="entryNames" v-for="item in horses[numVotes]" :key="item">{{item}}</p>
+              <p class="entryNames" v-for="item in horses[numVotes]" :key="item">
+                <span class="number">{{horseNums[item]}}</span>
+                <span class="horseName"> {{item}}</span>
+              </p>
             </div>
           </div>
        </div>
@@ -42,7 +43,17 @@ export default {
       race_winner_caption: 'Race Winner: Freshman Stripe',
       fan_favorites_caption: 'Fan Ranking',
       horses: {}, // (key, value[]) (votes, name[])
-      votes: []
+      votes: [],
+      horseNums: {
+        'Putah Ring on it': 1,
+        'Mrak in the Saddle': 2,
+        'Arboretum-n-Weep': 3,
+        'Karma Patrol': 4,
+        'Kemper Temper': 5,
+        'Freshman Stripe': 6,
+        'Healthy as a Horse': 7,
+        'Double Major': 8
+      }
     }
   },
   /* Instead of an array of objects, used object that holds votes as its key.
@@ -153,6 +164,8 @@ export default {
 
 }
 #horseImg {
+  width: 25vw;
+  height: auto;
   box-shadow: 20px 20px 40px 17px rgba(0, 0, 0, .33);
 }
 
@@ -231,4 +244,21 @@ img#badge {
  right: 0;
  border-width: 1em 1em 0 0;
 }
+.number {
+  display: inline-block;
+  background:#004aa8;
+  border-radius: 100%;
+  width: 25px;
+  font-size: 20px;
+  text-align: center;
+  color: #d9b000;
+}
+
+.horseName {
+  font-size: 20px;
+  padding-left: 5px;
+  padding-right: 20px;
+  color: #6e5b02;
+}
+
 </style>

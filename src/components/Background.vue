@@ -1,11 +1,7 @@
 <template>
     <div class="bgImgs">
-        <div class="top-left">
-             <img :src="require(`@/assets/carnation.png`)" alt="carnation" height="360" width="380">
-        </div>
-        <div class="bottom-right">
-             <img :src="require(`@/assets/rose.png`)" alt="rose" height="350" width="440">
-        </div>
+        <img :src="require(`@/assets/carnation.png`)" alt="carnation" height="360" width="380" class="top-left">
+        <img :src="require(`@/assets/rose.png`)" alt="rose" class="bottom-right"> <!---height="350" width="440"> --->
     </div>
 </template>
 
@@ -20,7 +16,7 @@ export default {
         top:0; left:0;
         width: 100%; height: 100%;
         position: fixed;
-
+        opacity: 0.6;
         z-index: -1;
     }
     .bottom-right {
@@ -28,12 +24,16 @@ export default {
         bottom: 0;
         right: 0;
         margin: 5px 5px;
+        width: 37vw;
+        height: auto;
     }
     .top-left {
         position: absolute;
         top:0;
         left: 0;
         margin: 5px 5px;
+         width: 30vw;
+        height: auto;
     }
 
 </style>

@@ -1,13 +1,9 @@
 <template>
   <div class="bgImgs">
-    <div class="left">
-      <img :src="require(`@/assets/horse-flowers.png`)" alt="horse-flower" height="650" >
-    </div>
-    <div class="rightPics">
-      <img id="top" :src="require(`@/assets/blackEyedSusan.png`)" alt="sunflower" height="320" width="350">
-      <img id="mid" :src="require(`@/assets/carnation.png`)" alt="carnation" height="330" width="350">
-      <img id="bottom" :src="require(`@/assets/rose.png`)" alt="rose" height="360" width="440">
-    </div>
+    <img id="left" :src="require(`@/assets/horse-flowers.png`)" alt="horse-flower" height="650" >
+    <img id="top" :src="require(`@/assets/blackEyedSusan.png`)" alt="sunflower">
+    <img id="mid" :src="require(`@/assets/carnation.png`)" alt="carnation">
+    <img id="bottom" :src="require(`@/assets/rose.png`)" alt="rose">
   </div>
 </template>
 
@@ -22,35 +18,39 @@ export default {
     top:0; left:0;
     width: 100%; height: 100%;
     position: fixed;
-
     z-index: -1;
   }
-
-  .rightPics {
-    height: 100%;
-    opacity: 0.7;
-  }
-
   img#top {
     position: absolute;
+    opacity: 0.6;
+    height: 45vh;
+    width: auto;
     top: -5%; right: -5%;
   }
 
   img#mid {
     position: absolute;
-    top:210px; right:-5%;
+    opacity: 0.7;
+    height: 45vh;
+    width: auto;
+    top:30vh; right:-5%;
     z-index: 1;
   }
 
   img#bottom {
     position: absolute;
+    opacity: 0.6;
+    height: 50vh;
+    width: auto;
     bottom:-7%; right:-5%;
   }
 
-  .left {
+  #left {
     position: absolute;
     top: 5%;
-    left: -37%;
-    opacity: 0.5;
+    left: -40vw;
+    opacity: 0.4;
+    height: 100vh;
+    width: auto;
   }
 </style>

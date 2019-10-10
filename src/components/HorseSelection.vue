@@ -6,9 +6,11 @@
           alt="horse"
           height="190"
           width="230"
-          @click="$emit('show-modal', horse.name, horse.imgSrc, horse.description, horse.silks)">
-
+          @click="$emit('show-modal', horse.key, horse.name, horse.imgSrc, horse.description, horse.silks)">
           <div class="nameBanner">
+            <div class="number">
+              {{horse.key}}
+              </div>
             {{horse.name}}
           </div>
       </div>
@@ -89,7 +91,7 @@ export default {
     grid-template-columns: 1fr 1fr 1fr 1fr;
     margin: auto;
     margin-top: 30px;
-    grid-gap: 35px;
+    grid-gap: 40px;
     justify-items: center;
     align-items: center;
 }
@@ -106,10 +108,22 @@ export default {
   width:100%; height:auto;
   position: absolute;
   top: 180px;
-  bottom: -15px;
+  bottom: -23px;
   text-align: center;
   padding-top: 3px;
   padding-bottom: 3px;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.number {
+  float: left;
+  margin-left: 20px;
+  background:#004aa8;
+  border-radius: 100%;
+  width: 12%;
+  font-size: 20px;
+  color: #d9b000;
 }
 
 #horseImg {
