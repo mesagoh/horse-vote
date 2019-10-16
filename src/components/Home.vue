@@ -4,8 +4,7 @@
     <Header />
     <HorseSelection v-on:show-modal="showModal"/>
     <Modal v-if="isSelected" v-on:close-modal="closeModal" v-on:select-horse="handleSelection">
-      <div v-if="!voted" slot="header"><b>You selected <span class="number"> {{selectedNum}}</span>
-      <span class="horseName"> {{selectedHorse}}</span></b></div>
+      <div v-if="!voted" slot="header"><b><span class="number">{{selectedNum}}</span> {{selectedHorse}}</b></div>
       <div v-if="!voted" slot="body">
         <img :src="require(`@/assets/horses/${horseImg}`)" alt="Unicorn" height="300" >
 
@@ -99,7 +98,6 @@ export default {
     border-radius: 100%;
     width: 7%;
     font-size: 30px;
-    color: #d9b000;
   }
   .horseName {
     color: #d9b000;
