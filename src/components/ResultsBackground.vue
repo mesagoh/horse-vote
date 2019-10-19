@@ -22,7 +22,7 @@ export default {
   }
   img#top {
     position: absolute;
-    opacity: 0.6;
+    opacity: 0.4;
     height: 45vh;
     width: auto;
     top: -5%; right: -5%;
@@ -30,7 +30,7 @@ export default {
 
   img#mid {
     position: absolute;
-    opacity: 0.7;
+    opacity: 0.5;
     height: 45vh;
     width: auto;
     top:30vh; right:-5%;
@@ -39,7 +39,7 @@ export default {
 
   img#bottom {
     position: absolute;
-    opacity: 0.6;
+    opacity: 0.4;
     height: 50vh;
     width: auto;
     bottom:-7%; right:-5%;
@@ -49,7 +49,7 @@ export default {
     position: absolute;
     top: 5%;
     left: -40vw;
-    opacity: 0.4;
+    opacity: 0.2;
     height: 100vh;
     width: auto;
   }

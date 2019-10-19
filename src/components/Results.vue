@@ -16,14 +16,15 @@
         <div class="favoritesContainer">
           <!-- /* line below returns votes in decreasing order */ -->
           <div v-for="numVotes in votes"  v-bind:key="numVotes" class="fanFavorite">
-            <div class="entry" v-if="numVotes == 1 ">{{numVotes}} Vote :</div>
-            <div class="entry" v-else>{{numVotes}} Votes :</div>
             <div class="entry">
               <!-- /* access horsesObject in this order and print the names */ -->
               <p class="entryNames" v-for="item in horses[numVotes]" :key="item">
+                <span v-if="numVotes == 1 ">({{numVotes}} Vote)</span>
+                <span v-else>({{numVotes}} Votes)</span>
                 <span class="number">{{horseNums[item]}}</span>
                 <span class="horseName"> {{item}}</span>
               </p>
+
             </div>
           </div>
        </div>
@@ -100,7 +101,7 @@ export default {
   display: block;
   margin: 0 auto;
   font-family: 'Cinzel', serif;
-  color: rgb(53, 39, 39);
+  color: rgb(37, 34, 34);
 }
 
 .title {
@@ -109,17 +110,20 @@ export default {
 }
 
 .favoritesContainer {
-  margin: 0 auto;
-  width: 30%;
+  column-count: 2;
+  /* column-gap: 200px; */
+  display: block;
+  margin: 1px 150px;
+  width: 100%;
   font-weight: 600;
 }
 .fanFavorite{
   display: grid;
   grid-template-columns: 45% 55%;
   align-items: start;
-  font-size: 18px;
+  font-size: 2vw;
   font-family: 'Assistant', sans-serif;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .race_winner_caption{
@@ -248,17 +252,17 @@ img#badge {
   display: inline-block;
   background:#004aa8;
   border-radius: 100%;
-  width: 25px;
-  font-size: 20px;
+  width: 30px;
+  font-size: 2vw;
   text-align: center;
-  color: #d9b000;
+  color: #f3cd24;
 }
 
 .horseName {
-  font-size: 20px;
+  font-size: 3vw;
   padding-left: 5px;
   padding-right: 20px;
-  color: #6e5b02;
+  color: #242321;
 }
 
 </style>
