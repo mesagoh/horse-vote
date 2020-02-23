@@ -1,6 +1,16 @@
-# horse-vote
+# AggieStakes
 
-> A Vue.js project
+A Vue.js project connected to firebase. User is allowed to click on the horse they would like to vote to view details before casting the vote.
+
+![Home Page](ss/galaApp_homepage.png)
+
+![Home Page - Selected](ss/galaApp_homepage-pre-select.png)
+
+![Home Page - Voted](ss/galaApp_homepage-post-select.png)
+
+![Results from Firebase](ss/galaApp_results.png)
+
+
 
 ## Build Setup
 
