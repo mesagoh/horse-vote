@@ -15,6 +15,7 @@
     <button v-if="!isLoggedIn" v-on:click='login'><b>Login</b></button>
     <button v-if="isLoggedIn" v-on:click='logout'><b>Logout</b></button>
     </div>
+    <a href="https://github.com/mesagoh/horse-vote">See Project</a>
   </div>
 </template>
 
@@ -114,6 +115,7 @@ export default {
   display: block;
   margin: auto;
   padding-top: 30px;
+  margin-bottom: 30px;
   margin-top: 100px;
   background: rgb(63, 70, 69);
   border-radius: 10px;
@@ -170,5 +172,14 @@ button:hover {
 
 button:focus {
   outline: none;
+}
+
+a {
+  color: rgb(252, 222, 92);
+  font-size: 2vw;
+}
+
+a:hover {
+  color: pink;
 }
 </style>
